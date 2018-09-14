@@ -3,6 +3,21 @@ var item = document.getElementById("inv"); //Muestrario con items
 
 // String con html del item a agregar
 var html_item = '';
+// JSON a guardar
+var Plant = {
+    "id": "",
+    "date": "",
+    "cont": {
+        "html": "",
+        "name": "",
+        "cantidad": "",
+        "precio": "",
+        "info": [
+            {"ventas": []},
+            {"time": []}
+        ]
+    }
+}
 
 // funcion que hace que el string tenga un nombre y cantidad personalizada
 function html() {
@@ -13,4 +28,7 @@ function html() {
 add_item.addEventListener('click', () => {
     html();
     item.innerHTML += html_item; //Añade html al ya existente
+    // Lo guarda en el JSON
+    Plant.cont.html = html_item;
+    Lockr.set("", Plant);
 });
