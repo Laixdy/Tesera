@@ -32,6 +32,7 @@ add_item.addEventListener('click', () => {
     plant.cont.html = html_item;
     // Crea un id para el JSON
     plant.id = chance.guid();
-    // Guarda el JSON con el id anterior como nombre
-    Lockr.set(plant.id, plant);
+    // El nombre se asigna con una i mas la cantidad de objetos actual inicia en 0
+    // y lo guanda en el local storage
+    Lockr.set("i" + localStorage.length, plant);
 });
